@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 function Square(props) {
-  return(
-    <button className='square' onClick={props.onClick}>
+  return (
+    <button className="square" onClick={props.onClick}>
       {props.value}
     </button>
   );
@@ -12,7 +12,7 @@ function Square(props) {
 
 class Board extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       squares: Array(9).fill(null),
       xIsNext: true,
@@ -21,18 +21,18 @@ class Board extends React.Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice();
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares: squares,
-      xIsNext : !this.state.xIsNext,
+      xIsNext: !this.state.xIsNext,
     });
   }
 
   renderSquare(i) {
     return (
-      <Square 
+      <Square
         value={this.state.squares[i]}
-        onClick={() => this.handleClick[i]} 
+        onClick={() => this.handleClick(i)}
       />
     );
   }
